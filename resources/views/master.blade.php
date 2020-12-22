@@ -13,6 +13,7 @@
 	<link href="{{ asset('css/bootstrap.css') }}" type="text/css" rel="stylesheet">
 	<link href="{{ asset('css/styles.css') }}" type="text/css" rel="stylesheet">
 	<link href="{{ asset('css/engine.css') }}" type="text/css" rel="stylesheet">
+	
 	<!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
 <!-- 	<link href="{{ asset('css/css.css') }}" rel="stylesheet" type="text/css"> -->
 	
@@ -23,18 +24,18 @@
 <div class="wrap">
 	<div class="main center">
 		<header class="header" id="header">
-			<!-- <a href="/" class="logotype" title="На главную">Movie-Searh</a>  -->
+			<a href="/" class="logotype" title="На главную">Movie-Searh</a> 
 			<div class="search-box">
-                <form id="quicksearch" method="post">
+                <form id="quicksearch" method="get" action="/">
 					<input type="hidden" name="do" value="search">
 					<input type="hidden" name="subaction" value="search">
 					<div class="search-inner">
-						<input id="story" name="story" placeholder="Поиск..." type="text">
+						<input id="search" name="search" placeholder="Поиск..." type="text">
 						<button type="submit" title="Найти"><span class="fa fa-search"></span></button>
 					</div>
 				</form>
 			</div>
-			<div class="show-login img-box" id="loginbtn"><span class="fa fa-user"></span></div>
+			<a href="/profile">><div class="show-login img-box" id="loginbtn"><span class="fa fa-user"></span></div></a>
 		<div class="show-menu"><span class="fa fa-bars"></span></div></header>
 		<div class="related tcarusel carou-top">
 			<h2 class="rel-title">Новинки</h2>

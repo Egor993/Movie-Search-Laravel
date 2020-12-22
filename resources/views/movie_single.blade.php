@@ -64,6 +64,7 @@
 					
 					<div class="r-kp" data-label="КП">7.59</div>
 					<div class="r-imdb" data-label="IMDB">7.48</div>
+					<div><a href="/favorite_add/{{ $movies->slug }}">В избранное</div>
 				</div>
 				<ul class="mov-list">
 					

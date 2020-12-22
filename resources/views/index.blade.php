@@ -70,8 +70,9 @@
 <div class="clr"></div>
 <div class="pagi-nav clearfix ignore-select">
 	
-	<span class="navigation"><span>1</span> <a href="/page/2/">2</a> <a href="/page/3/">3</a> <a href="/page/4/">4</a> <a href="/page/5/">5</a> <a href="/page/6/">6</a> <a href="/page/7/">7</a> <a href="/page/8/">8</a> <a href="page/9/">9</a> <a href="/page/10/">10</a> <span class="nav_ext">...</span> <a href="/page/1134/">1134</a></span>																 
-	<span class="pnext"><a href="/page/2/"><span class="fa fa-arrow-right"></span></a></span>
+<!-- 	<span class="navigation"><span>1</span> <a href="/page/2/">2</a> <a href="/page/3/">3</a> <a href="/page/4/">4</a> <a href="/page/5/">5</a> <a href="/page/6/">6</a> <a href="/page/7/">7</a> <a href="/page/8/">8</a> <a href="page/9/">9</a> <a href="/page/10/">10</a> <span class="nav_ext">...</span> <a href="/page/1134/">1134</a></span>	 -->	
+{{ $movies->appends(['search' => $search])->links() }}													 
+<!-- 	<span class="pnext"><a href="/page/2/"><span class="fa fa-arrow-right"></span></a></span> -->
 </div></div>
 					</div>
 				
