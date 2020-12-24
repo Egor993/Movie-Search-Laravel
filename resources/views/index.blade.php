@@ -28,7 +28,7 @@
 @foreach($movies as $movie)
 <div class="mov clearfix">
 	<div class="mov-i img-box">
-		<img src="img/{{ $movie->image }}" alt="Обещание Санты (2020)">
+		<img src="/img/{{ $movie->image }}" alt="Обещание Санты (2020)">
 		<div class="mov-mask flex-col ps-link" data-link="/{{ $movie->slug }}"><span class="fa fa-play"></span></div>
 			
 			<div class="mov-m">2020</div>
@@ -70,8 +70,10 @@
 <div class="clr"></div>
 <div class="pagi-nav clearfix ignore-select">
 	
-<!-- 	<span class="navigation"><span>1</span> <a href="/page/2/">2</a> <a href="/page/3/">3</a> <a href="/page/4/">4</a> <a href="/page/5/">5</a> <a href="/page/6/">6</a> <a href="/page/7/">7</a> <a href="/page/8/">8</a> <a href="page/9/">9</a> <a href="/page/10/">10</a> <span class="nav_ext">...</span> <a href="/page/1134/">1134</a></span>	 -->	
-{{ $movies->appends(['search' => $search])->links() }}													 
+<!-- 	<span class="navigation"><span>1</span> <a href="/page/2/">2</a> <a href="/page/3/">3</a> <a href="/page/4/">4</a> <a href="/page/5/">5</a> <a href="/page/6/">6</a> <a href="/page/7/">7</a> <a href="/page/8/">8</a> <a href="page/9/">9</a> <a href="/page/10/">10</a> <span class="nav_ext">...</span> <a href="/page/1134/">1134</a></span>	 -->
+@if(isset($search))	
+	{{ $movies->appends(['search' => $search])->links() }}
+@endif													 
 <!-- 	<span class="pnext"><a href="/page/2/"><span class="fa fa-arrow-right"></span></a></span> -->
 </div></div>
 					</div>

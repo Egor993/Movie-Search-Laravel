@@ -26,7 +26,11 @@
 		<header class="header" id="header">
 			<a href="/" class="logotype" title="На главную">Movie-Searh</a> 
 			<div class="search-box">
-                <form id="quicksearch" method="get" action="/">
+				@if (isset($code))
+                	<form id="quicksearch" method="get" action="/jenre/{{ $code }}">
+                @else
+                	<form id="quicksearch" method="get" action="/">
+                @endif
 					<input type="hidden" name="do" value="search">
 					<input type="hidden" name="subaction" value="search">
 					<div class="search-inner">
@@ -38,9 +42,11 @@
 			<a href="/profile">><div class="show-login img-box" id="loginbtn"><span class="fa fa-user"></span></div></a>
 		<div class="show-menu"><span class="fa fa-bars"></span></div></header>
 		<div class="related tcarusel carou-top">
+			
 			<h2 class="rel-title">Новинки</h2>
 			<div class="tcarusel-scroll clearfix">
 <!-- Las update -->
+@foreach($last_add as $movie)
 	<div class="mov tcarusel-item">
 		<div class="mov-i img-box">
 			<img src="{{ asset('img/the-christmas-house-2020.png') }}" alt="Рождественский дом (2020)">
@@ -51,96 +57,7 @@
 		</div>
 		<a class="mov-t nowrap" href="http://Movie-Searh.bet/filmy/22752-the-christmas-house-2020.html" title="Рождественский дом (2020)">Рождественский дом (2020)</a>
 	</div>
-<!-- Las update -->
-<div class="mov tcarusel-item">
-	<div class="mov-i img-box">
-		<img src="{{ asset('img/noposter.png') }}" onerror="this.src='/templates/Movie-Searh/images/noposter.png'" alt="Восставшие: одержимость (2020)">
-		<div class="mov-mask flex-col ps-link" data-link="http://Movie-Searh.bet/filmy/22831-the-rizen-possession-2020.html"><span class="fa fa-play"></span></div>
-		
-        <div class="mov-m">2020</div>
-	</div>
-	<a class="mov-t nowrap" href="http://Movie-Searh.bet/filmy/22831-the-rizen-possession-2020.html" title="Восставшие: одержимость (2020)">Восставшие: одержимость (2020)</a>
-</div>
-<!-- Las update -->
-<div class="mov tcarusel-item">
-	<div class="mov-i img-box">
-		<img src="{{ asset('img/noposter.png') }}" onerror="this.src='/templates/Movie-Searh/images/noposter.png'" alt="Восставшие: одержимость (2020)">
-		<div class="mov-mask flex-col ps-link" data-link="http://Movie-Searh.bet/filmy/22831-the-rizen-possession-2020.html"><span class="fa fa-play"></span></div>
-		
-        <div class="mov-m">2020</div>
-	</div>
-	<a class="mov-t nowrap" href="http://Movie-Searh.bet/filmy/22831-the-rizen-possession-2020.html" title="Восставшие: одержимость (2020)">Восставшие: одержимость (2020)</a>
-</div>
-<!-- Las update -->
-<div class="mov tcarusel-item">
-	<div class="mov-i img-box">
-		<img src="{{ asset('img/noposter.png') }}" onerror="this.src='/templates/Movie-Searh/images/noposter.png'" alt="Восставшие: одержимость (2020)">
-		<div class="mov-mask flex-col ps-link" data-link="http://Movie-Searh.bet/filmy/22831-the-rizen-possession-2020.html"><span class="fa fa-play"></span></div>
-		
-        <div class="mov-m">2020</div>
-	</div>
-	<a class="mov-t nowrap" href="http://Movie-Searh.bet/filmy/22831-the-rizen-possession-2020.html" title="Восставшие: одержимость (2020)">Восставшие: одержимость (2020)</a>
-</div>
-<!-- Las update -->
-<div class="mov tcarusel-item">
-	<div class="mov-i img-box">
-		<img src="{{ asset('img/noposter.png') }}" onerror="this.src='/templates/Movie-Searh/images/noposter.png'" alt="Восставшие: одержимость (2020)">
-		<div class="mov-mask flex-col ps-link" data-link="http://Movie-Searh.bet/filmy/22831-the-rizen-possession-2020.html"><span class="fa fa-play"></span></div>
-		
-        <div class="mov-m">2020</div>
-	</div>
-	<a class="mov-t nowrap" href="http://Movie-Searh.bet/filmy/22831-the-rizen-possession-2020.html" title="Восставшие: одержимость (2020)">Восставшие: одержимость (2020)</a>
-</div>
-<!-- Las update -->
-<div class="mov tcarusel-item">
-	<div class="mov-i img-box">
-		<img src="{{ asset('img/noposter.png') }}" onerror="this.src='/templates/Movie-Searh/images/noposter.png'" alt="Восставшие: одержимость (2020)">
-		<div class="mov-mask flex-col ps-link" data-link="http://Movie-Searh.bet/filmy/22831-the-rizen-possession-2020.html"><span class="fa fa-play"></span></div>
-		
-        <div class="mov-m">2020</div>
-	</div>
-	<a class="mov-t nowrap" href="http://Movie-Searh.bet/filmy/22831-the-rizen-possession-2020.html" title="Восставшие: одержимость (2020)">Восставшие: одержимость (2020)</a>
-</div>
-<!-- Las update -->
-<div class="mov tcarusel-item">
-	<div class="mov-i img-box">
-		<img src="{{ asset('img/noposter.png') }}" onerror="this.src='/templates/Movie-Searh/images/noposter.png'" alt="Восставшие: одержимость (2020)">
-		<div class="mov-mask flex-col ps-link" data-link="http://Movie-Searh.bet/filmy/22831-the-rizen-possession-2020.html"><span class="fa fa-play"></span></div>
-		
-        <div class="mov-m">2020</div>
-	</div>
-	<a class="mov-t nowrap" href="http://Movie-Searh.bet/filmy/22831-the-rizen-possession-2020.html" title="Восставшие: одержимость (2020)">Восставшие: одержимость (2020)</a>
-</div>
-<!-- Las update -->
-<div class="mov tcarusel-item">
-	<div class="mov-i img-box">
-		<img src="{{ asset('img/noposter.png') }}" onerror="this.src='/templates/Movie-Searh/images/noposter.png'" alt="Восставшие: одержимость (2020)">
-		<div class="mov-mask flex-col ps-link" data-link="http://Movie-Searh.bet/filmy/22831-the-rizen-possession-2020.html"><span class="fa fa-play"></span></div>
-		
-        <div class="mov-m">2020</div>
-	</div>
-	<a class="mov-t nowrap" href="http://Movie-Searh.bet/filmy/22831-the-rizen-possession-2020.html" title="Восставшие: одержимость (2020)">Восставшие: одержимость (2020)</a>
-</div>
-<!-- Las update -->
-<div class="mov tcarusel-item">
-	<div class="mov-i img-box">
-		<img src="{{ asset('img/noposter.png') }}" onerror="this.src='/templates/Movie-Searh/images/noposter.png'" alt="Восставшие: одержимость (2020)">
-		<div class="mov-mask flex-col ps-link" data-link="http://Movie-Searh.bet/filmy/22831-the-rizen-possession-2020.html"><span class="fa fa-play"></span></div>
-		
-        <div class="mov-m">2020</div>
-	</div>
-	<a class="mov-t nowrap" href="http://Movie-Searh.bet/filmy/22831-the-rizen-possession-2020.html" title="Восставшие: одержимость (2020)">Восставшие: одержимость (2020)</a>
-</div>
-<!-- Las update -->
-<div class="mov tcarusel-item">
-	<div class="mov-i img-box">
-		<img src="{{ asset('img/noposter.png') }}" onerror="this.src='/templates/Movie-Searh/images/noposter.png'" alt="Восставшие: одержимость (2020)">
-		<div class="mov-mask flex-col ps-link" data-link="http://Movie-Searh.bet/filmy/22831-the-rizen-possession-2020.html"><span class="fa fa-play"></span></div>
-		
-        <div class="mov-m">2020</div>
-	</div>
-	<a class="mov-t nowrap" href="http://Movie-Searh.bet/filmy/22831-the-rizen-possession-2020.html" title="Восставшие: одержимость (2020)">Восставшие: одержимость (2020)</a>
-</div>
+@endforeach
 <!-- Las update -->
 </div>
 

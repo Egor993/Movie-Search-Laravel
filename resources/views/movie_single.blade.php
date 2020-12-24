@@ -236,7 +236,7 @@ else{
 	<div class="add-comm-form clearfix" id="add-comm-form" style="display: block;">
 
 	<div class="ac-title">Прокомментировать <span class="fa fa-chevron-down"></span></div>
-	<div class="ac-av img-box" id="ac-av"></div>
+	<div class="ac-av img-box" id="ac-av"><img height="70" width="70" src="avatars/{{$user->image}}" class="mr-3 img-fluid" alt="image"></div>
 	<div class="ac-textarea"><div class="bb-editor">
 	<textarea name="comment" id="comment" cols="70" rows="10"></textarea>
 @if($errors->any())
@@ -262,9 +262,10 @@ else{
 		<input type="hidden" name="movie_slug" id="movie_slug" value="{{ $movies->slug }}"><input type="hidden" name="user_hash"></form>
 <!-- comment -->
 <div class="single-form-left">
+@if (!empty($comments))
 @foreach($comments as $el)
 <div class="media py-5">
-    <img height="70" width="70" src="img/{{$el->image}}" class="mr-3 img-fluid" alt="image">
+    <img height="70" width="70" src="avatars/{{$el->image}}" class="mr-3 img-fluid" alt="image">
     <div class="media-body mt-6">
         <h5 class="mt-0 editContent" style="outline: none; cursor: inherit;">{{ $el->name }}</h5>
          <span class="text-muted">
@@ -276,6 +277,7 @@ else{
 		</div>
 	</div>
 @endforeach
+@endif
 </div>
 
 <!-- comment -->	

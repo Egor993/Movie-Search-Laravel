@@ -15,16 +15,17 @@ Auth::routes([
 	'confirm' => false,
 	'verify' => false,
 ]);
-Route::post('/profile/upload_avatar', 'MainController@upload_avatar');
+Route::get('/jenre/{jenre}/', 'MainController@jenre');
+Route::post('/profile/upload_avatar', 'ProfileController@upload_avatar');
 Route::get('/favorite_add/{slug}', 'MainController@favorite_add');
 Route::get('/logout', 'Auth\LoginController@logout');
 Route::get('/', 'MainController@index');
 
-Route::get('/profile', 'MainController@profile')->name('profile');
+Route::get('/profile', 'ProfileController@profile')->name('profile');
 Route::get('/{jenre}/{movie}', 'MainController@movie_single');
-Route::get('/{movie}', 'MainController@movie_single')->name('review');
+Route::get('/{movie}/', 'MovieController@movie_single')->name('review');
 
-Route::post('/review/check', 'MainController@review_check');
+Route::post('/review/check', 'MovieController@review_check');
 
 // Route::get('/movie/1', function () {
 //     return view('movie_single');
