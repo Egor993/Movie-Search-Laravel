@@ -52,8 +52,6 @@
 				</tbody></table>
 			
 			<div class="full-soc" style="text-align:center; margin:20px 0;">
-<!-- 				<script src="js/es5-shims.min.js"></script>
-				<script src="js/share.js"></script> -->
 				
 			</div>
 		</div>
@@ -64,7 +62,11 @@
 					
 					<div class="r-kp" data-label="КП">7.59</div>
 					<div class="r-imdb" data-label="IMDB">7.48</div>
-					<div><a href="/favorite_add/{{ $movies->slug }}">В избранное</div>
+					@if($check == null)
+						<div><a class='favorite' data-id='{{ $slug }}'  href="#">В избранное</a></div>
+					@else
+					<div><a class='favorite' data-id='{{ $slug }}'  href="#">В избранном</a></div>
+					@endif
 				</div>
 				<ul class="mov-list">
 					
@@ -102,21 +104,9 @@
 	<br>
 	<div style="text-align:center;">
 		<ins class="adsbygoogle" style="display:inline-block;width:550px;height:350px" data-ad-client="ca-pub-6309004234808687" data-ad-slot="5821258697" data-adsbygoogle-status="done"><ins id="aswift_1_expand" style="display:inline-table;border:none;height:350px;margin:0;padding:0;position:relative;visibility:visible;width:550px;background-color:transparent;" tabindex="0" title="Advertisement" aria-label="Advertisement"><ins id="aswift_1_anchor" style="display:block;border:none;height:350px;margin:0;padding:0;position:relative;visibility:visible;width:550px;background-color:transparent;"><iframe id="aswift_1" name="aswift_1" style="left:0;position:absolute;top:0;border:0;width:550px;height:350px;" sandbox="allow-forms allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation" width="550" height="350" frameborder="0" src="ads_1.html" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allowfullscreen="true" data-google-container-id="a!1" data-google-query-id="CIqah8260O0CFZmPmgodIg0NAg" data-load-complete="true"></iframe></ins></ins></ins>
-<!-- 		<script>
-			 (adsbygoogle = window.adsbygoogle || []).push({});
-		</script> -->
-	</div>
-	<br><br><!-- <script>
-<!--
-if(typeof dle_poll_voted !== "undefined"){
-    dle_poll_voted[22779] = 0;
-}
-else{
-	var dle_poll_voted = new Array();
-    dle_poll_voted[22779] = 0;
-}
 
-</script> -->
+	</div>
+	<br><br>
 	<br>
 	<br>
 	<div class="related tcarusel">
@@ -285,5 +275,6 @@ else{
 					</div>
 				
 				
-			</div>		
+			</div>			
+<script src="{{ asset('js/movie_single.js') }}"></script>		
 @endsection

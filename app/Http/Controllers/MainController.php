@@ -29,6 +29,6 @@ class MainController extends Controller
     		$movies = $movies = Movie::where('name', 'LIKE', '%' . $search . '%')->where('code', $code)->paginate(5);
     	}
         return view('index')->with(compact('movies'))->with(compact('search'))->with(compact('code'));
-    }
+	}
 
 }

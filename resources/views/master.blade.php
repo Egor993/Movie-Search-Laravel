@@ -13,13 +13,8 @@
 	<link href="{{ asset('css/bootstrap.css') }}" type="text/css" rel="stylesheet">
 	<link href="{{ asset('css/styles.css') }}" type="text/css" rel="stylesheet">
 	<link href="{{ asset('css/engine.css') }}" type="text/css" rel="stylesheet">
-	
-	<!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
-<!-- 	<link href="{{ asset('css/css.css') }}" rel="stylesheet" type="text/css"> -->
-	
-<!-- 	<script src="{{ asset('js/cookie.js') }}"></script><script async src="{{ asset('js/tag.js') }}"></script><script src="{{ asset('js/show_ads_impl_fy2019.js') }}" id="google_shimpl"></script><script data-ad-client="ca-pub-6309004234808687" async src="{{ asset('js/adsbygoogle.js') }}" data-checked-head="true"></script> -->
-
-
+	<script src="{{ asset('js/jquery.js') }}"></script>
+	<script src="{{ asset('js/carusel.js') }}"></script>
 
 <div class="wrap">
 	<div class="main center">
@@ -183,11 +178,5 @@
 		</footer>
 	</div>
 </div>
-
-<script src="{{ asset('js/jquery.js') }}"></script>
-
-<script src="{{ asset('js/jqueryui.js') }}" defer></script>
-<script src="{{ asset('js/dle_js.js') }}" defer></script>    
-<script src="{{ asset('js/libs.js') }}"></script>
 
 </html>

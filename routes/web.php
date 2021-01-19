@@ -17,7 +17,7 @@ Auth::routes([
 ]);
 Route::get('/jenre/{jenre}/', 'MainController@jenre');
 Route::post('/profile/upload_avatar', 'ProfileController@upload_avatar');
-Route::get('/favorite_add/{slug}', 'MainController@favorite_add');
+Route::get('/favorite_add/{slug}', 'MovieController@favorite_add');
 Route::get('/logout', 'Auth\LoginController@logout');
 Route::get('/', 'MainController@index');
 

@@ -11,7 +11,8 @@ use Illuminate\Http\Request;
 class MovieController extends Controller {
 
     public function movie_single($slug) {
-    	$user = auth()->user();
+        $user = auth()->user();
+        $check = Favorite_movies::where('slug', $slug)->where('user', $user->name)->first();
     	$last_add = Movie::take(3)->get();
         $comments = Comment::where('movie_slug', $slug)->get();
         foreach ($comments as &$comment) {
@@ -19,7 +20,8 @@ class MovieController extends Controller {
         	$comment->image = $user_comment->image;
         }
         $movies = Movie::where('slug', $slug)->first();
-        return view('movie_single')->with(compact('movies'))->with(compact('user'))->with(compact('comments'))->with(compact('last_add'));
+        return view('movie_single')->with(compact('movies'))->with(compact('user'))
+            ->with(compact('comments'))->with(compact('last_add'))->with(compact('slug'))->with(compact('check'));
     }
 
     public function review_check(Request $request) {
@@ -38,19 +40,18 @@ class MovieController extends Controller {
         // return redirect()->route('review');
     }
 
-    public function favorite_add($slug) {
-        $user = auth()->user();
-
-        $movies = Movie::where('slug', $slug)->first();
-
-        $favorite = new Favorite_movies();
-        $favorite->name = $movies->name;
-        $favorite->slug = $slug;
-        $favorite->image = $movies->image;
-        $favorite->user = $user->name;
-        $favorite->save();
-
-        // return redirect()->route('review');
+	public function favorite_add($slug) {
+		$user = auth()->user();
+		$movies = Movie::where('slug', $slug)->first();
+		$check = Favorite_movies::where('slug', $slug)->where('user', $user->name)->first();
+		if($check == null){
+			$favorite = new Favorite_movies();
+			$favorite->name = $movies->name;
+			$favorite->slug = $slug;
+			$favorite->image = $movies->image;
+			$favorite->user = $user->name;
+			$favorite->save();
+		}
     }
 
 }
