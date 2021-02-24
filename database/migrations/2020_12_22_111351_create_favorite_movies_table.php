@@ -19,6 +19,13 @@ class CreateFavoriteMoviesTable extends Migration
             $table->string('name');
             $table->string('slug');
             $table->text('image')->nullable();
+            $table->string('date');
+            $table->string('time');
+            $table->string('country');
+            $table->string('jenre');
+            $table->string('acters');
+            $table->string('producer');
+            $table->string('description');
             $table->string('user');
         });
     }

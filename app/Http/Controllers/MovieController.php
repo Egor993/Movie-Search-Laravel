@@ -12,15 +12,18 @@ class MovieController extends Controller {
 
     public function movie_single($slug) {
         $user = auth()->user();
-        $check = Favorite_movies::where('slug', $slug)->where('user', $user->name)->first();
-    	$last_add = Movie::take(3)->get();
+    	$last_add = Movie::take(12)->get();
         $comments = Comment::where('movie_slug', $slug)->get();
+        if(isset($user)){
+            $check = Favorite_movies::where('slug', $slug)->where('user', $user->name)->first();
+        }
+        else $check = null;
         foreach ($comments as &$comment) {
         	$user_comment = User::where('name', $comment->name)->first();
         	$comment->image = $user_comment->image;
         }
-        $movies = Movie::where('slug', $slug)->first();
-        return view('movie_single')->with(compact('movies'))->with(compact('user'))
+        $movie = Movie::where('slug', $slug)->first();
+        return view('movie_single')->with(compact('movie'))->with(compact('user'))
             ->with(compact('comments'))->with(compact('last_add'))->with(compact('slug'))->with(compact('check'));
     }
 
@@ -37,7 +40,7 @@ class MovieController extends Controller {
         $review->image = $user->image;
         $review->save();
 
-        // return redirect()->route('review');
+        return redirect('/'.$request['movie_slug']);
     }
 
 	public function favorite_add($slug) {
@@ -48,8 +51,15 @@ class MovieController extends Controller {
 			$favorite = new Favorite_movies();
 			$favorite->name = $movies->name;
 			$favorite->slug = $slug;
-			$favorite->image = $movies->image;
-			$favorite->user = $user->name;
+            $favorite->image = $movies->image;
+            $favorite->user = $user->name;
+            $favorite->date = $movies->date;
+            $favorite->time = $movies->time;
+            $favorite->country = $movies->country;
+            $favorite->jenre = $movies->jenre;
+            $favorite->acters = $movies->acters;
+            $favorite->producer = $movies->producer;
+            $favorite->description = $movies->description;
 			$favorite->save();
 		}
     }
